@@ -1,0 +1,45 @@
+version: "3"
+
+services:
+  bun:
+    build: 
+      context: .
+      dockerfile: bun/Dockerfile
+    environment: 
+      - NODE_ENV=production
+    ports:
+      - "3000:3000"
+    volumes:
+      - /usr/app/node_modules
+
+  csharp:
+    build: 
+      context: .
+      dockerfile: csharp/Dockerfile
+    ports:
+      - "3000:3000"
+
+  go:
+    build: 
+      context: .
+      dockerfile: go/Dockerfile
+    ports:
+      - "3000:3000"
+
+  nodejs:
+    build: 
+      context: .
+      dockerfile: nodejs/Dockerfile
+    environment: 
+      - NODE_ENV=production
+    ports:
+      - "3000:3000"
+    volumes:
+      - /usr/app/node_modules
+
+  python:
+    build:
+      context: .
+      dockerfile: python/Dockerfile
+    ports:
+      - "3000:3000" 
